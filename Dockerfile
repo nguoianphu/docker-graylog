@@ -72,7 +72,7 @@ RUN set -ex \
 COPY config ./data/config
 
 ENV GRAYLOG_CONF /usr/share/graylog/data/config/server.conf
-ENV LOG4J /usr/share/graylog/data/config/log4j2.xml
+ENV LOG4J "-Dlog4j.configurationFile=/usr/share/graylog/data/config/log4j2.xml"
 
 VOLUME /usr/share/graylog/data
 
