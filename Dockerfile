@@ -78,4 +78,4 @@ VOLUME /usr/share/graylog/data
 
 EXPOSE 9000 12900
 
-CMD ["graylogctl start"]
+CMD ["gosu graylogctl start"]
