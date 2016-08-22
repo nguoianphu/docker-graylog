@@ -1,2 +1,5 @@
-# docker-graylog
-Docker images for the Graylog (latest 2.x)
+# Docker images for the Graylog
+
+Graylog 2.0.3
+
+
