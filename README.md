@@ -20,13 +20,13 @@ Graylog 2.0.3
     
 Login to Graylog (http://127.0.0.1:9000/) with the username ```admin``` and password ```admin```
 
-To access Graylog web on other machines, you must change the default
+To access Graylog web on other machines, you can change the value
 
-     GRAYLOG_REST_TRANSPORT_URI: http://127.0.0.1:12900
+     rest_listen_uri = http://0.0.0.0:12900/
      
-to your real  Graylog web IP address (i.e 192.168.1.123)
+in the graylog server.conf to your real  Graylog web IP address (i.e 192.168.1.123). You can override it by Docker run command:
 
-     docker run -e "GRAYLOG_REST_TRANSPORT_URI: http://192.168.1.123:12900" --link some-mongo:mongo --link some-elasticsearch:elasticsearch -d nguoianphu/docker-graylog
+     docker run -e "GRAYLOG_REST_TRANSPORT_URI=http://192.168.1.123:12900" --link some-mongo:mongo --link some-elasticsearch:elasticsearch -d nguoianphu/docker-graylog
      
 ---      
     
