@@ -19,6 +19,16 @@ Graylog 2.0.3
     docker run --link some-mongo:mongo --link some-elasticsearch:elasticsearch -d nguoianphu/docker-graylog
     
 Login to Graylog (http://127.0.0.1:9000/) with the username ```admin``` and password ```admin```
+
+To access Graylog web on other machines, you must change the default
+
+     GRAYLOG_REST_TRANSPORT_URI: http://127.0.0.1:12900
+     
+to your real  Graylog web IP address (i.e 192.168.1.123)
+
+     docker run -e "GRAYLOG_REST_TRANSPORT_URI: http://192.168.1.123:12900" --link some-mongo:mongo --link some-elasticsearch:elasticsearch -d nguoianphu/docker-graylog
+     
+---      
     
 ## Docker-compose
 
@@ -53,3 +63,13 @@ Login to Graylog (http://127.0.0.1:9000/) with the username ```admin``` and pass
     echo -n admin1 | sha256sum
     
 Change ```GRAYLOG_ROOT_PASSWORD_SHA2``` with your new password hash string.
+
+### Access Graylog web on other machines
+
+You must change
+
+     GRAYLOG_REST_TRANSPORT_URI: http://127.0.0.1:12900
+     
+to your real  Graylog web IP address (i.e 192.168.1.123)
+
+     GRAYLOG_REST_TRANSPORT_URI: http://192.168.1.123:12900
