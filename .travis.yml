@@ -13,7 +13,7 @@ before_install:
   - sleep 30
   - docker run --link some-mongo:mongo --link some-elasticsearch:elasticsearch --name mygraylog -d -p 127.0.0.1:80:9000 graylog
   - docker ps -a
-  - docker logs -f mygraylog
+  # - docker logs -f mygraylog
   
 
 script:
