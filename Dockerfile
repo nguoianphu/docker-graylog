@@ -78,4 +78,7 @@ VOLUME /usr/share/graylog/data
 
 EXPOSE 9000 12900
 
-CMD ["gosu graylogctl start"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["graylogctl start"]
