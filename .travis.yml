@@ -11,8 +11,9 @@ before_install:
   - sleep 10
   - docker run --name some-elasticsearch -d elasticsearch elasticsearch -Des.cluster.name="graylog"
   - sleep 30
-  - docker run --link some-mongo:mongo --link some-elasticsearch:elasticsearch -d -p 127.0.0.1:80:9000 graylog
+  - docker run --link some-mongo:mongo --link some-elasticsearch:elasticsearch --name mygraylog -d -p 127.0.0.1:80:9000 graylog
   - docker ps -a
+  - docker logs -f mygraylog
   
 
 script:
