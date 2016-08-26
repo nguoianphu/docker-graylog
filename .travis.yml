@@ -1,11 +1,8 @@
 sudo: required
-
-# language: ruby
-
 services:
   - docker
 
-before_install:
+script:
   - docker build -t graylog .
   - docker run --name some-mongo -d mongo
   - sleep 10
@@ -14,7 +11,4 @@ before_install:
   - docker run --link some-mongo:mongo --link some-elasticsearch:elasticsearch --name mygraylog -d -p 127.0.0.1:80:9000 graylog
   - docker ps -a
   # - docker logs -f mygraylog
-  
 
-script:
-  - sudo curl http://127.0.0.1:80/
